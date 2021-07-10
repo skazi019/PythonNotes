@@ -1,8 +1,20 @@
 # Python notes
 
+[Contents](#)
+  - [Data types](#101-data-types)
+  - [Namepsace](#102-namepsace)
+  - [Scope](#103-scope)
+  - [Lambda function](#104-lambda-function)
+  - [Pass](#105-pass)
+  - [Copy (Shallow Copy and Deep Copy)](#106-copy-shallow-copy-and-deep-copy)
+    - [Shallow Copy](#1061-shallow-copy)
+    - [Deep Copy](#1062-deep-copy)
+  - [First Class functions](#107-first-class-functions)
+  - [Decorators](#108-decorators)
+
 <br />
 
-### Data types
+### 1.0.1. Data types
  - Datatype of a object can be checked using functions type() or isinstance()
 
 Data types
@@ -23,13 +35,15 @@ Data types
    - set
    - frozenset
 
+
+[Back to top](#)
 <br />
 
 ---
 
 <br />
 
-### Namepsace
+### 1.0.2. Namepsace
  - Namespace in python ensures that object names are unique and can be used without conflict.
  - Python **implements namespaces as dictionaries** with **name as key** mapped to corresponding **object as value**
  - this allows **multiple namespaces** to use the **same name and map it to separate objects**
@@ -39,13 +53,14 @@ Data types
    - Built-in namespace - includes the built-in functions and names
  - **Lifecycle** of a namespace **depends upon the scope** of the objects they are mapped to.
 
+[Back to top](#)
 <br />
 
 ---
 
 <br />
 
-### Scope
+### 1.0.3. Scope
  - A scope is a block of code where objects remain relevant or where you can unambiguosly access the name, such as variables, functions, objects, etc
  - the **scopes** are **implemented as dictionaries that map names to objects**. these dictionaries are called **_Namespaces_**
  - They are stored in dunder method _dict_
@@ -62,13 +77,15 @@ dict_keys(['__name__', '__doc__', '__package__',..., 'argv', 'ps1', 'ps2'])
    - global / module
    - Built-in
 
+
+[Back to top](#)
 <br />
 
 ---
 
 <br />
 
-### Lambda function
+### 1.0.4. Lambda function
 Lambda is an anonyomous function that can accept any number of arguements, but can only have one expression.
 Generally used in situations requiring an anonymous function for a short period of time.
 
@@ -80,23 +97,27 @@ print(mul(2, 5))
 Output: 10
 ```
 
+[Back to top](#)
 <br />
 
 ---
 
 <br />
 
-### Pass 
+### 1.0.5. Pass 
 pass in python represents a _null operation_.
 Generally used for fillin up empty blocks of code which may be executed during runtime but has yet to be written.
 
+
+[Back to top](#)
 <br />
 
 ---
 
 <br />
 
-### Copy (Shallow Copy and Deep Copy)
+### 1.0.6. Copy [(Shallow Copy and Deep Copy)](https://docs.python.org/3/library/copy.html#module-copy)
+
 In python, the assignment operator `=` does not copy the object. Instead, it just creates a binding between the existing object and the target variable name.
 To create copies of object, we need to use the `copy` module.
 Moreover, there are two ways to copy objects.
@@ -105,11 +126,11 @@ Moreover, there are two ways to copy objects.
 
 <br />
 
-#### Shallow Copy
+#### 1.0.6.1. Shallow Copy
 constructs a new object and then inserts the references to the elements/objects into it. Therefore, though the object is new, it still references the same elements/objects as the original object. 
 
 ```
-from copy import copy
+from copy import copy, deepcopy
 
 list1 = [1, 2, [3, 5], 4]
 list2 = copy(list1)
@@ -123,7 +144,7 @@ list1    # output => [1, 2, [3, 5, 6], 4]
 
 <br />
 
-#### Deep Copy
+#### 1.0.6.2. Deep Copy
 copies all the values recursively from the original object to the new object i.e. creates duplicated of the objects/elements referenced by the original object
 
 ```
@@ -135,21 +156,23 @@ list_3    # output => [1, 2, [3, 5, 6, 7], 8]
 list_1    # output => [1, 2, [3, 5, 6], 4]
 ```
 
+[Back to top](#)
 <br />
 
 ---
 <br />
 
-### First Class functions
+### 1.0.7. First Class functions
 
 
+[Back to top](#)
 <br />
 
 ---
 
 <br />
 
-### Decorators
+### 1.0.8. Decorators
 
 Decorators are functions that adds some functionality to the function wihtout altering the structure of the original function.
 
@@ -178,3 +201,4 @@ hello()
 
 output: ['hello', 'world']
 ```
+[Back to top](#)
