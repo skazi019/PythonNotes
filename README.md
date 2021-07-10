@@ -156,6 +156,11 @@ list_3    # output => [1, 2, [3, 5, 6, 7], 8]
 list_1    # output => [1, 2, [3, 5, 6], 4]
 ```
 
+#### Copying a list
+ - .copy() - `list2 = list1.copy()`
+ - list() - `list2 = list(list1)`
+ - slicing - `list2 = list1[:]`
+
 [Back to top](#)
 <br />
 
