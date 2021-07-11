@@ -179,6 +179,7 @@ list_1    # output => [1, 2, [3, 5, 6], 4]
 
 
 [Back to top](#)
+
 <br />
 
 ---
@@ -215,3 +216,81 @@ hello()
 output: ['hello', 'world']
 ```
 [Back to top](#)
+
+<br />
+
+---
+
+### Iterators
+Iterators in python is simply and object that can be _iterated_ upon.
+An object which will _return data one at a time_.\
+An object is called _iterable_ if we can get an _iterator_ from it.\
+Example: string, list, tuples are iterables\
+An iterator must implement two dunder methods: **_iter_** and **_next_**.\
+ - iter() - which in turn calls the dunder iter methods returns an iterator from the iterable
+ - next() - is used to iterate through all the items of an iterator.
+
+When we reach the end of the iterator and there is no more data to be returned, calling the `next()` methods will throw `StopIteration` exception.
+
+```
+my_iter = iter(my_list)
+next(my_iter)
+next(my_iter)
+```
+#### How `for` loop is implemented
+```
+for i in list:
+  do something
+```
+is implemented as -
+```
+iter_obj = iter(list)
+while true:
+  try:
+    element = next(iter_obj)
+    do somehting
+  except StopIteration:
+    break
+```
+So, internally for loop first creates an iterator object by calling the `iter()` method on the iterable and then goes into an infinite `while` loop with a `try except` condition to iterate over the iterable and catch the exception when we reach the end of the iterable.
+
+#### Infinite Iterators
+`iter()` can be called with two arguements -
+ - callable object
+ - sentinel
+
+The iterator calls this function till the return value is equal to the sentinel.
+```
+inf = iter(int, 1)
+```
+`int` always return 0, hence this is called infinitely.
+
+\
+[Back to top](#)
+
+---
+
+### Generators
+> A generator is a function that returns an object(iterator) which we can iterate over one value at a time.
+
+Defining a generator is as easy as defining a normal function with atleast one `yield` statement.\
+A `return` statement terminates the function entirely, whereas `yield` statement pauses the function, saving all its state, and transfers the control back to the caller.\
+When the generator is called it returns an iterator object but does not start executing immediately. Once the funtion yields, the function is paused and the control is transferred back to the caller.\
+Local variable and their states are remembered between successful calls.\
+Generators _don't hold_ the entire _result_ in _memory_, rather it _produces one result at a time_.
+
+#### Generator Expressions
+The syntax is similar to a list comprehension except replace `[]` with `()`.\
+Generator expressions create anonymous generator functions.\
+List comprehensions produces the entire list whereas generator expressions produces one item at a time.\
+they have **_lazy execution_** i.e. producing items only when asked for. Hence, generator expressions are much more **_memory efficient_** than list comprehensions.
+```
+List comp: [x**2 for x in my_list]
+Generator exp: (x**2 for x in my_list)
+```
+
+\
+[Back to Top](#)
+
+---
+
