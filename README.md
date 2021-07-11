@@ -4,13 +4,15 @@ Table of Content
  - [Data types](#data-types)
  - [NameSpace](#namepsace)
  - [Scope](#scope)
+ - [Iterators](#iterators)
+ - [Generators](#generators)
+   - [Generator Expressions](#generator-expressions)
  - [Lambda function](#lambda-function)
  - [Pass keyword](#pass-keyword-in-pyton)
  - [Copy](#copy-shallow-copy-and-deep-copy)
    - [Shallow Copy](#shallow-copy)
    - [Deep Copy](#deep-copy)
  - [Decorators](#decorators)
-
 
 <br />
 
@@ -36,12 +38,10 @@ types
    - frozenset
 
 
+\
 [Back to top](#)
-<br />
 
 ---
-
-<br />
 
 ### Namepsace
  - Namespace in python ensures that object names are unique and can be used without conflict.
@@ -53,12 +53,10 @@ types
    - Built-in namespace - includes the built-in functions and names
  - **Lifecycle** of a namespace **depends upon the scope** of the objects they are mapped to.
 
+\
 [Back to top](#)
-<br />
 
 ---
-
-<br />
 
 ### Scope
  - A scope is a block of code where objects remain relevant or where you can unambiguosly access the name, such as variables, functions, objects, etc
@@ -77,13 +75,10 @@ dict_keys(['__name__', '__doc__', '__package__',..., 'argv', 'ps1', 'ps2'])
    - global / module
    - Built-in
 
-
+\
 [Back to top](#)
-<br />
 
 ---
-
-<br />
 
 ### Lambda function
 Lambda is an anonyomous function that can accept any number of arguements, but can only have one expression.
@@ -97,24 +92,19 @@ print(mul(2, 5))
 Output: 10
 ```
 
+\
 [Back to top](#)
-<br />
 
 ---
-
-<br />
 
 ### Pass keyword in pyton
 pass in python represents a _null operation_.
 Generally used for fillin up empty blocks of code which may be executed during runtime but has yet to be written.
 
-
+\
 [Back to top](#)
-<br />
 
 ---
-
-<br />
 
 ### Copy [(Shallow Copy and Deep Copy)](https://docs.python.org/3/library/copy.html#module-copy)
 
@@ -161,30 +151,10 @@ list_1    # output => [1, 2, [3, 5, 6], 4]
  - list() - `list2 = list(list1)`
  - slicing - `list2 = list1[:]`
 
-[Back to top](#)
-<br />
-
----
-
-<br />
-
-### Range and XRange
-
-<br />
-
----
-<br />
-
-### First Class functions
-
-
+\
 [Back to top](#)
 
-<br />
-
 ---
-
-<br />
 
 ### Decorators
 
@@ -215,9 +185,9 @@ hello()
 
 output: ['hello', 'world']
 ```
-[Back to top](#)
 
-<br />
+\
+[Back to top](#)
 
 ---
 
