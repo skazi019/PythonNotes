@@ -11,6 +11,7 @@
   - Method resolution order of classes
 - [Linter in python](#linter-in-python)
 - Messaging queues - rabbitmq etc
+- caching
 - async programming
 - wsgi
 - asgi
@@ -18,9 +19,9 @@
 - [Design patterns](https://python-patterns.guide/)
 - Status code HTTP
 - Git conflicts
-- PEP8
-- duck typing
-- type hinting in python
+- PEP8 | [material](https://www.python.org/dev/peps/pep-0008/)
+- [duck typing](#duck-typing)
+- [type hinting in python](#type-hinting)
 - Documenting code in python
 - changing functionalities of packages in python
 - `eval()`
@@ -30,6 +31,7 @@
 - Event driven programming
 - itertools
 - functools
+- pass by value, pass by reference
 
 <br />
 <br />
@@ -217,4 +219,11 @@ Another example could be `str()`.
 ---
 
 ### Type hinting
+It is basically done to indicate the type of the arguements being passed into a function and what will be the type of the ouput of the function.
+```
+def greet(name: str, align: bool = True) -> str:
+    return "Hello" + name
+```
+
+---
 
