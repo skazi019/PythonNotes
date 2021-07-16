@@ -159,8 +159,7 @@ Theres no real destructor, but the `__del__` is called when you `del object`.So 
  Therefore static methods can neither modify object state or class state. They are restricted to what data they can access, primarily they are a way to `namespace` your methods.\
  When the `@staticmethod` decorator is used, even python runtime won't let that methods modify attributes of the class or instance.
 
-
-<br />
+---
 
 ### Linter in Python
 We all make mistakes why writing code and you can't expect yourself to catch all of them. Mistyped variable names, forgetting closing bracket, incorrect indentation, calling function with wrong number of arguements, etc. Linters help you identify such problems in your code.\
@@ -173,3 +172,8 @@ Two types of linting -
  - Stylitic lint
 
 VsCode uses Pylance which is powered by Microsoft's Pyright which is a static type checking tool. 
+
+---
+
+### Swagger
+Swagger allows you to describe the structure of your APIs so that machines can read them.
