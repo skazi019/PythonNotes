@@ -19,6 +19,7 @@
 - Status code HTTP
 - Git conflicts
 - PEP8
+- duck typing
 - type hinting in python
 - Documenting code in python
 - changing functionalities of packages in python
@@ -34,10 +35,10 @@
 <br />
 
 ### Try except else finally
-- try: this block is the code for which the error is supposed to be catched.\
-except: Here the code for when the exception occurs.\
-else: if there is no exception then this block will be exceuted.\
-finally: this block always gets exceuted whether the exception is generated or not.
+ - try: this block is the code for which the error is supposed to be catched.
+ - except: Here the code for when the exception occurs.
+ - else: if there is no exception then this block will be exceuted.
+ - finally: this block always gets exceuted whether the exception is generated or not.
 ```
 try:
 	...
@@ -189,4 +190,31 @@ Advantages-
 **Makes the APIs more consumable**.
 
 ---
+
+### Duck typing
+
+Duck typing is a concept related to dynamic typing, where the type or class of an object is less important than the methods it define.\
+When you use duck typing, you do not check for type at all. Instead, you check for the presence of a given method or attribute.\
+example - `len()` in python\
+it looks for `__len__()` method for the object it is called upon.
+```
+class Hobbit:
+    def __len__(self):
+        return 95022
+
+my_str = "Hello World"
+my_list = [34, 54, 65, 78]
+my_dict = {"one": 123, "two": 456, "three": 789}
+
+len(Hobbit) # 95022
+len(my_str) # 11
+len(my_list) # 4
+len(my_dict) # 3
+```
+Therefore, In order for you to call `len(obj)`, the only real constraint on obj is that it must define a `__len__()` method. Otherwise, the object can be of types as different as str, list, dict, or Hobbit.\
+Another example could be `str()`.
+
+---
+
+### Type hinting
 
