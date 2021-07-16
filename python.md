@@ -1,19 +1,19 @@
 # Python
 
 - Try except else finally
-- OOPS and Classes
-- `__init__`
-- Data Encapsulation, Information Hiding, and Data Abstraction
-- Public, Protected, and Private access modifiers
-- Destructor
-- Instance methods, Class methods, and Static methods link
+- OOPS and Classes [link](https://www.python-course.eu/python3_object_oriented_programming.php)
+  - `__init__`
+  - Data Encapsulation, Information Hiding, and Data Abstraction
+  - Public, Protected, and Private access modifiers
+  - Destructor
+  - Instance methods, Class methods, and Static methods link
+  - Data Class
+  - Method resolution order of classes
 - Linter in python
 - Messaging queues - rabbitmq etc
 - async programming
-- Method resolution order of classes
 - wsgi
 - asgi
-- Data Class
 - Swagger
 - Design patterns
 - Status code HTTP
@@ -24,6 +24,7 @@
 - changing functionalities of packages in python
 - `eval()`
 - REST APIs
+- Pickling and unpickling
 
 <br />
 <br />
