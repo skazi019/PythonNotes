@@ -1,15 +1,15 @@
 # Python
 
 - Try except else finally
-- OOPS and Classes [link](https://www.python-course.eu/python3_object_oriented_programming.php)
-  - `__init__`
-  - Data Encapsulation, Information Hiding, and Data Abstraction
-  - Public, Protected, and Private access modifiers
-  - Destructor
-  - Instance methods, Class methods, and Static methods link
+- [OOPS and Classes](#oops-and-classes) | [material](https://www.python-course.eu/python3_object_oriented_programming.php)
+  - [`__init__`](#__init__)
+  - [Data Encapsulation, Information Hiding, and Data Abstraction](#data-encapsulation-information-hiding-and-data-abstraction)
+  - [Public, Protected, and Private access modifiers](#public-protected-and-private-access-modifiers)
+  - [Destructor](#destructor)
+  - [Instance methods, Class methods, and Static methods](#instance-methods-class-methods-and-static-methods-link)
   - Data Class
   - Method resolution order of classes
-- Linter in python
+- [Linter in python](#linter-in-python)
 - Messaging queues - rabbitmq etc
 - async programming
 - wsgi
@@ -25,6 +25,7 @@
 - `eval()`
 - REST APIs
 - Pickling and unpickling
+- Hooks(either in django or http)
 
 <br />
 <br />
@@ -157,3 +158,18 @@ Theres no real destructor, but the `__del__` is called when you `del object`.So 
  - Static method - These methods neither take `self` or `cls` as an arguement but can accept any number of other arguements.\
  Therefore static methods can neither modify object state or class state. They are restricted to what data they can access, primarily they are a way to `namespace` your methods.\
  When the `@staticmethod` decorator is used, even python runtime won't let that methods modify attributes of the class or instance.
+
+
+<br />
+
+### Linter in Python
+We all make mistakes why writing code and you can't expect yourself to catch all of them. Mistyped variable names, forgetting closing bracket, incorrect indentation, calling function with wrong number of arguements, etc. Linters help you identify such problems in your code.\
+Most editors/IDEs run linters in the background, highlighting, underlining, or otherwise identifying the problems in the code before you run it. Like a spell-check for code.\
+Two types of linting -
+ - Logical lint
+   - code errors
+   - indentation issues
+   - dangerous code patterns
+ - Stylitic lint
+
+VsCode uses Pylance which is powered by Microsoft's Pyright which is a static type checking tool. 
