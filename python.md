@@ -14,8 +14,8 @@
 - async programming
 - wsgi
 - asgi
-- Swagger
-- Design patterns
+- [Swagger](#swagger)
+- [Design patterns](https://python-patterns.guide/)
 - Status code HTTP
 - Git conflicts
 - PEP8
@@ -26,6 +26,9 @@
 - REST APIs
 - Pickling and unpickling
 - Hooks(either in django or http)
+- Event driven programming
+- itertools
+- functools
 
 <br />
 <br />
@@ -176,4 +179,14 @@ VsCode uses Pylance which is powered by Microsoft's Pyright which is a static ty
 ---
 
 ### Swagger
-Swagger allows you to describe the structure of your APIs so that machines can read them.
+Swagger allows you to describe the structure of your APIs so that machines can read them.\
+It is basically a set of rules(specifications and tooling for how to semantically describe APIs.\
+Advantages-
+ - Comprehensible for both developers and non-developers
+ - Human readable and machine readable
+ - Easily adjustable 
+
+**Makes the APIs more consumable**.
+
+---
+
