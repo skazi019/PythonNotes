@@ -30,6 +30,10 @@ class Robot:
 	
 	def get_build_year(self):
 		return self.build_year
+	
+	# example of duck typing
+	def __len__(self):
+		return 90101
 
 x = Robot("Henry", 2020)
 y = Robot()
@@ -41,3 +45,5 @@ y.set_name('Marvin')
 
 x.say_hi()
 y.say_hi()
+
+print(len(x))
