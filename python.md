@@ -34,7 +34,8 @@
 - pass by value, pass by reference
 
 <br />
-<br />
+
+---
 
 ### Try except else finally
  - try: this block is the code for which the error is supposed to be catched.
