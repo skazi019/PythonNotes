@@ -32,6 +32,8 @@
 - itertools
 - functools
 - pass by value, pass by reference
+- `walrus` operator
+- bitwise operations
 
 <br />
 
@@ -53,7 +55,7 @@ finally:
 	...
 ```
 ---
-#### OOPS and Classes
+### OOPS and Classes
 Everything in python is "First Class" i.e. is a class so that everthing can be treated the same way. can be assigned to variables, stored in lists, stored in dictionaries, passed as arguements and so forth.\
 Accessing a non-existing attribute(variable) will throw `AttributeError`. Use `getattr()` method to to prevent this error and set a default value for the attribute.
 ```
@@ -156,7 +158,7 @@ Theres no real destructor, but the `__del__` is called when you `del object`.So 
 
 <br />
 
-#### Instance methods, Class methods, and Static methods [link](https://realpython.com/instance-class-and-static-methods-demystified/#delicious-pizza-factories-with-classmethod)
+#### Instance methods, Class methods, and Static methods [(RealPython.com)](https://realpython.com/instance-class-and-static-methods-demystified/#delicious-pizza-factories-with-classmethod)
  - Instance method - most common type of method that is used most of the time. Takes in the first arguement as `self` which is the instance of the class.\
  through the `self` parameter, you can freely access other attributes and methods of the same object. this gives them a lot of power when it comes to modifying the state of an object.
  - Class method - Instead of accepting `self`, it takes `cls` which points to the class and not the object.\
@@ -228,3 +230,9 @@ def greet(name: str, align: bool = True) -> str:
 
 ---
 
+### Status codes in HTTP
+
+#### Successful Responses
+ - `200 OK` - The request has succeeded. 
+ - `201 Created` - The request has succeeded and a new resource has been created. Typically response sent after `Post` request and some `Put` requests.
+ - `202 Accepted` - The request has been received but not yet acted upon. It is intended for casese where another process or server handles the request, or batch processing. 
