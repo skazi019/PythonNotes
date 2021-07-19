@@ -172,6 +172,33 @@ Theres no real destructor, but the `__del__` is called when you `del object`.So 
 
 ---
 
+#### Dataclass
+This module provides a decorator and functions for automatically adding generated *special methods* like `__str__()` and `__repr__()` to the user defined class.\
+
+```
+from dataclasses import dataclass
+
+@dataclass
+class InventoryItem:
+    """Class for keeping track of of an item in Inventory"""
+    name: str
+    unit_price: float
+    quantity_on_hand: int = 0
+
+    def total_cost(self) -> float:
+        return self.unit_price * self. quantity_on_hand
+```
+The preceeding code will create and `__init__()` constructor for the class _InventoryItem_, among other things, which would look like the following. This will be done automatically.
+
+```
+def __init__(self, name: str, unit_price: float, quantity_on_hand: int = 0):
+    self.name = name
+    self.unit_price = unit_price
+    self.quantity_on_hand = quantity_on_hand
+```
+
+---
+
 ### Linter in Python
 We all make mistakes why writing code and you can't expect yourself to catch all of them. Mistyped variable names, forgetting closing bracket, incorrect indentation, calling function with wrong number of arguements, etc. Linters help you identify such problems in your code.\
 Most editors/IDEs run linters in the background, highlighting, underlining, or otherwise identifying the problems in the code before you run it. Like a spell-check for code.\
