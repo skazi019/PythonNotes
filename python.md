@@ -8,9 +8,11 @@
   - [Destructor](#destructor)
   - [Instance methods, Class methods, and Static methods](#instance-methods-class-methods-and-static-methods-link)
   - Data Class
+  - Meta Class
   - Method resolution order of classes
 - [Linter in python](#linter-in-python)
-- Messaging queues - rabbitmq etc
+- Messaging queues - rabbitmq, redis, kafka
+- Topic in Kafka
 - caching
 - async programming
 - wsgi
@@ -235,4 +237,5 @@ def greet(name: str, align: bool = True) -> str:
 #### Successful Responses
  - `200 OK` - The request has succeeded. 
  - `201 Created` - The request has succeeded and a new resource has been created. Typically response sent after `Post` request and some `Put` requests.
- - `202 Accepted` - The request has been received but not yet acted upon. It is intended for casese where another process or server handles the request, or batch processing. 
+ - `202 Accepted` - The request has been received but not yet acted upon. It is intended for casese where another process or server handles the request, or batch processing.
+ - `203 Non-Authoritative Information` - the returned meta-information is not exactly the same as is available from the origin server, but is collected from a local or third-party copy. Mostly used for mirrors or backups of another resource.

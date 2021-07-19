@@ -4,10 +4,14 @@ Topics
  - Authentication and Authorization
  - models
  - forms
+ - signals
+ - auth model
+ - response cycle
  - django rest framework
    - serialization
    - authentication and authorization
    - Throttling (rate limiting)
+ - **ORM** is *less flexible* than **raw SQL queries** in django
 
 ### django Authentication
 Different models like `User` and various methods to authenticate a user are present in the `django.contrib.auth`
