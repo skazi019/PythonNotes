@@ -7,8 +7,10 @@
   - [Public, Protected, and Private access modifiers](#public-protected-and-private-access-modifiers)
   - [Destructor](#destructor)
   - [Instance methods, Class methods, and Static methods](#instance-methods-class-methods-and-static-methods-link)
-  - Data Class
+  - properties
+  - [Dataclass](#dataclass)
   - Meta Class
+  - interface
   - Method resolution order of classes
 - [Linter in python](#linter-in-python)
 - Messaging queues - rabbitmq, redis, kafka
@@ -95,7 +97,8 @@ Hi, I am Marvin
 #### Data Encapsulation, Information Hiding, and Data Abstraction
 **Data Encapsulation** - refers to the bundling of the data with the methods that operate on that data, or the restricting of the direct access to some of an object's components.\
 **Information hiding** on the other hand is the principle that some internal information or data is _hidden_, so that it cannot be accidently changed.\
-**Data Abstraction** is present if both _Data Encapsulation_ and _Information Hiding_ is used.\
+**Data Abstraction** is present if both _Data Encapsulation_ and _Information Hiding_ is used.
+
 <br />
 
 _Encapsulation_ is often accomplished by providing two types of attributes: _getters_(accessors) and _setters_(mutators).\
@@ -155,6 +158,8 @@ class A:
 	self._prot = "I am protected"
 	self.pub = "I am public"
 ```
+<br />
+
 #### Destructor
 Theres no real destructor, but the `__del__` is called when you `del object`.So you can type in any block of code that you want to execute before deleting an object.
 
@@ -170,10 +175,55 @@ Theres no real destructor, but the `__del__` is called when you `del object`.So 
  Therefore static methods can neither modify object state or class state. They are restricted to what data they can access, primarily they are a way to `namespace` your methods.\
  When the `@staticmethod` decorator is used, even python runtime won't let that methods modify attributes of the class or instance.
 
----
+<br />
 
-#### Dataclass
-This module provides a decorator and functions for automatically adding generated *special methods* like `__str__()` and `__repr__()` to the user defined class.\
+#### Properties
+Allow us to define a method that can be accessed as an attribute.\
+If we need to set/update some attribute without changing the code, we can do that using the `@property` decorator to change a method into an attribute.\
+```
+class Employee:
+
+    def __init__(self, first, last):
+        self.first = first
+        self.last = last
+    
+    @property
+    def email(self):
+        return f'{self.first}.{self.last}@email.com'
+    
+    @property
+    def fullname(self):
+        return f'{self.first} {self.last}'
+
+
+emp_1 = Employee('John', 'Smith')
+
+print(emp_1.first) # John
+print(emp_1.email) # John.Smith@email.com
+print(emp_1.fullname) # John Smith
+```
+Allows us to dynamically set attribute values, using method, if some attribute are updated.\
+To update this property, you'll have to create a setter.
+
+```
+@fullname.setter
+def fullname(self, name):
+    first, last = name.split(' ')
+    self.first = first
+    self.last = last
+
+emp_1.fullname = 'Kaushal Sharma'
+
+Output -
+Kaushal
+Kaushal.Sharma@email.com
+Kaushal Sharma
+```
+
+<br />
+
+#### Dataclass ([material](https://docs.python.org/3/library/dataclasses.html#module-level-decorators-classes-and-functions))
+This module provides a decorator and functions for automatically adding generated *special methods* like `__init__()` and `__repr__()` to the user defined class.\
 
 ```
 from dataclasses import dataclass
@@ -188,7 +238,7 @@ class InventoryItem:
     def total_cost(self) -> float:
         return self.unit_price * self. quantity_on_hand
 ```
-The preceeding code will create and `__init__()` constructor for the class _InventoryItem_, among other things, which would look like the following. This will be done automatically.
+The preceeding code will create an `__init__()` constructor for the class _InventoryItem_, among other things, which would look like the following. This will be done automatically.
 
 ```
 def __init__(self, name: str, unit_price: float, quantity_on_hand: int = 0):
@@ -196,6 +246,31 @@ def __init__(self, name: str, unit_price: float, quantity_on_hand: int = 0):
     self.unit_price = unit_price
     self.quantity_on_hand = quantity_on_hand
 ```
+Dataclass decorator can have parameters as follows
+```
+@dataclass(init=True, repr=True, eq=True, order=False, unsafe_hash=False, frozen=False)
+class A:
+    ...
+```
+ - init - if true `__init__()` will be generated. if it is already present in the class then this parameter is ignored
+ - repr - if true `__repr__()` will be generated. The generated repr string will have the class name and the name and repr of each field. in the order they are defined in the class.
+ - eq - If true `__eq__()` methods is generated. This methods compares the class as if it were a tuple of its fields, in order. Both instances in the comparison must be of the identical type.
+ - order - if true, `__lt__()`, `__le__()`, `__gt__()`, and `__ge__()` methods will be generated. (same explanation as above)
+
+<br />
+
+#### Meta class
+A class whose instances are other classes is called a Metaclass.\
+Usecases for metaclasses -
+ - logging and profiling
+ - interface checking
+ - registering classes at creation time
+ - automatically adding new methods
+ - automatic property creation
+ - proxies
+ - automatic resource locking/synchronization
+
+
 
 ---
 
