@@ -223,7 +223,7 @@ Kaushal Sharma
 <br />
 
 #### Dataclass ([material](https://docs.python.org/3/library/dataclasses.html#module-level-decorators-classes-and-functions))
-This module provides a decorator and functions for automatically adding generated *special methods* like `__init__()` and `__repr__()` to the user defined class.\
+This module provides a decorator and functions for automatically adding generated *special methods* like `__init__()` and `__repr__()` to the user defined class.
 
 ```
 from dataclasses import dataclass
