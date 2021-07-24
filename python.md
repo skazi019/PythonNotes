@@ -179,7 +179,7 @@ Theres no real destructor, but the `__del__` is called when you `del object`.So 
 
 #### Properties
 Allow us to define a method that can be accessed as an attribute.\
-If we need to set/update some attribute without changing the code, we can do that using the `@property` decorator to change a method into an attribute.\
+If we need to set/update some attribute without changing the code, we can do that using the `@property` decorator to change a method into an attribute.
 ```
 class Employee:
 
