@@ -16,7 +16,7 @@ Table of Content
 
 <br />
 
-### Data types
+### Data types <a href="#" style="float:right;font-size:.8em;">Back to Top</a>
  - Datatype of a object can be checked using functions type() or isinstance()
 
 types
@@ -37,13 +37,9 @@ types
    - set
    - frozenset
 
-
-\
-[Back to top](#)
-
 ---
 
-### Namepsace
+### Namepsace <a href="#" style="float:right;font-size:.8em;">Back to Top</a>
  - Namespace in python ensures that object names are unique and can be used without conflict.
  - Python **implements namespaces as dictionaries** with **name as key** mapped to corresponding **object as value**
  - this allows **multiple namespaces** to use the **same name and map it to separate objects**
@@ -53,12 +49,9 @@ types
    - Built-in namespace - includes the built-in functions and names
  - **Lifecycle** of a namespace **depends upon the scope** of the objects they are mapped to.
 
-\
-[Back to top](#)
-
 ---
 
-### Scope
+### Scope <a href="#" style="float:right;font-size:.8em;">Back to Top</a>
  - A scope is a block of code where objects remain relevant or where you can unambiguosly access the name, such as variables, functions, objects, etc
  - the **scopes** are **implemented as dictionaries that map names to objects**. these dictionaries are called **_Namespaces_**
  - They are stored in dunder method _dict_
@@ -70,17 +63,16 @@ dict_keys(['__name__', '__doc__', '__package__',..., 'argv', 'ps1', 'ps2'])
 ``` 
  - The key method on displays all the names stored in module sys i.e. _dunder dict_ holds the namespace of _sys_ and is concrete representation of the module
  - Types of scopes
-   - local / function
-   - nonlocal / enclosing
-   - global / module
+   - local / function - Variables declared inside the function and are only accessible to that function.
+   - nonlocal / enclosing - Variables defined in the enclosing/outer function that can be accessed inside the inner functions.\
+   Can be read inside the inner functions but to modify them will have to declare it inside the function using the `nonlocal` keyword.
+   - global / module - variables defined outside of all of the functions, in the module(python file/script).\
+   Can be read inside functions but to mutate/modify them we will have to define with they keyword `global` inside the function.
    - Built-in
-
-\
-[Back to top](#)
 
 ---
 
-### Lambda function
+### Lambda function <a href="#" style="float:right;font-size:.8em;">Back to Top</a>
 Lambda is an anonyomous function that can accept any number of arguements, but can only have one expression.
 Generally used in situations requiring an anonymous function for a short period of time.
 
@@ -92,21 +84,15 @@ print(mul(2, 5))
 Output: 10
 ```
 
-\
-[Back to top](#)
-
 ---
 
-### Pass keyword in pyton
+### Pass keyword in pyton <a href="#" style="float:right;font-size:.8em;">Back to Top</a>
 pass in python represents a _null operation_.
 Generally used for fillin up empty blocks of code which may be executed during runtime but has yet to be written.
 
-\
-[Back to top](#)
-
 ---
 
-### Copy [(Shallow Copy and Deep Copy)](https://docs.python.org/3/library/copy.html#module-copy)
+### Copy [(Shallow Copy and Deep Copy)](https://docs.python.org/3/library/copy.html#module-copy) <a href="#" style="float:right;font-size:.8em;">Back to Top</a>
 
 In python, the assignment operator `=` does not copy the object. Instead, it just creates a binding between the existing object and the target variable name.
 To create copies of object, we need to use the `copy` module.
@@ -151,12 +137,10 @@ list_1    # output => [1, 2, [3, 5, 6], 4]
  - list() - `list2 = list(list1)`
  - slicing - `list2 = list1[:]`
 
-\
-[Back to top](#)
 
 ---
 
-### Decorators
+### Decorators <a href="#" style="float:right;font-size:.8em;">Back to Top</a>
 
 Decorators are functions that adds some functionality to the function wihtout altering the structure of the original function.
 
@@ -186,12 +170,9 @@ hello()
 output: ['hello', 'world']
 ```
 
-\
-[Back to top](#)
-
 ---
 
-### Iterators
+### Iterators <a href="#" style="float:right;font-size:.8em;">Back to Top</a>
 Iterators in python is simply and object that can be _iterated_ upon.
 An object which will _return data one at a time_.\
 An object is called _iterable_ if we can get an _iterator_ from it.\
@@ -235,12 +216,10 @@ inf = iter(int, 1)
 ```
 `int` always return 0, hence this is called infinitely.
 
-\
-[Back to top](#)
 
 ---
 
-### Generators
+### Generators <a href="#" style="float:right;font-size:.8em;">Back to Top</a> 
 > A generator is a function that returns an object(iterator) which we can iterate over one value at a time.
 
 Defining a generator is as easy as defining a normal function with atleast one `yield` statement.\
@@ -259,8 +238,50 @@ List comp: [x**2 for x in my_list]
 Generator exp: (x**2 for x in my_list)
 ```
 
-\
-[Back to Top](#)
+---
+
+### Closures
+
+> A closure is a function object that remembers the values
+> in the enclosing scope even if they are not present in the memory i.e. the function execution has finished.
+
+```
+def make_counter():
+  count = 0
+
+  def inner():
+    nonlocal count
+    count += 1
+    return count
+  return inner
+
+counter = make_counter()
+c = counter()
+print(c) # 1
+c = counter()
+print(c) # 2
+c = counter()
+print(c) # 3
+```
 
 ---
 
+### First Class functions
+> Assigning a function object to a variable name would make the variable a first class funtion.\
+> The function now can be executed using this variable name by adding paranthesies and the relevant arguments.
+```
+def square(x):
+  return x**x
+
+f = square # passing the function object to variable
+
+f(5) # 25
+```
+<br />
+
+#### Higher Order functions
+If a function accepts other functions as an argument then this functions is called a higher order function.\
+eg- `map()` function is a higher order function
+```
+map(function, iterable)
+```
