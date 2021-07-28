@@ -11,6 +11,7 @@ Topics
    - serialization
    - authentication and authorization
    - Throttling (rate limiting)
+ - django-debug-toolbar
  - **ORM** is *less flexible* than **raw SQL queries** in django
 
 ### django Authentication
