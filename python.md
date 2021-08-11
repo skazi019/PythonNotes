@@ -13,6 +13,7 @@
   - interface
   - Method resolution order of classes
 - [Linter in python](#linter-in-python)
+- descriptors
 - Messaging queues - rabbitmq, redis, kafka
 - Topic in Kafka
 - caching
@@ -341,3 +342,18 @@ def greet(name: str, align: bool = True) -> str:
  - `201 Created` - The request has succeeded and a new resource has been created. Typically response sent after `Post` request and some `Put` requests.
  - `202 Accepted` - The request has been received but not yet acted upon. It is intended for casese where another process or server handles the request, or batch processing.
  - `203 Non-Authoritative Information` - the returned meta-information is not exactly the same as is available from the origin server, but is collected from a local or third-party copy. Mostly used for mirrors or backups of another resource.
+
+ ---
+
+ ### descriptors
+
+> descriptors are python objects that implement a method of the descriptor protocol, 
+> which gives you the ability to create objects that have special behaviour when they are *accessed as attributes of other objects*
+
+example -
+```
+__get__(self, obj, type=None) -> object
+__set__(self, obj, value) -> None
+__delete__(self, obj) -> None
+__set_name__(self, owner, name)
+```
